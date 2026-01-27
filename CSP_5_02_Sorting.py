@@ -1,32 +1,90 @@
-import random
+<html>
+<head>
+<title>CSP_5_02_Sorting.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CSP_5_02_Sorting.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">random</span>
+
+<span class="s0">def </span><span class="s1">bubbleSort</span><span class="s2">(</span><span class="s1">items</span><span class="s2">: </span><span class="s1">list</span><span class="s2">):</span>
+    <span class="s1">swaps </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">comparisons </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">n </span><span class="s2">= </span><span class="s1">len</span><span class="s2">(</span><span class="s1">items</span><span class="s2">)</span>
+
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">n </span><span class="s2">- </span><span class="s3">1</span><span class="s2">):</span>
+        <span class="s0">for </span><span class="s1">j </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">n </span><span class="s2">- </span><span class="s3">1 </span><span class="s2">- </span><span class="s1">i</span><span class="s2">):</span>
+            <span class="s1">comparisons </span><span class="s2">+= </span><span class="s3">1</span>
+            <span class="s0">if </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">] &gt; </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">]:</span>
+                <span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">], </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">] = </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">], </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">]</span>
+                <span class="s1">swaps </span><span class="s2">+= </span><span class="s3">1</span>
+
+    <span class="s0">return </span><span class="s1">items</span><span class="s2">, </span><span class="s1">swaps</span><span class="s2">, </span><span class="s1">comparisons</span>
 
 
-def bubbleSort(items:list):
-    swaps = 0
-    comparisons = 0
+<span class="s0">def </span><span class="s1">insertionSort</span><span class="s2">(</span><span class="s1">items</span><span class="s2">: </span><span class="s1">list</span><span class="s2">):</span>
+    <span class="s1">swaps </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">comparisons </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">n </span><span class="s2">= </span><span class="s1">len</span><span class="s2">(</span><span class="s1">items</span><span class="s2">)</span>
 
-    return items, swaps, comparisons
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s1">n</span><span class="s2">):</span>
+        <span class="s1">key </span><span class="s2">= </span><span class="s1">items</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]</span>
+        <span class="s1">j </span><span class="s2">= </span><span class="s1">i </span><span class="s2">- </span><span class="s3">1</span>
 
-def insertionSort(items: list):
-    swaps = 0
-    comparisons = 0
+        <span class="s0">while </span><span class="s1">j </span><span class="s2">&gt;= </span><span class="s3">0</span><span class="s2">:</span>
+            <span class="s1">comparisons </span><span class="s2">+= </span><span class="s3">1</span>
+            <span class="s0">if </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">] &gt; </span><span class="s1">key</span><span class="s2">:</span>
+                <span class="s1">items</span><span class="s2">[</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">] = </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">]</span>
+                <span class="s1">swaps </span><span class="s2">+= </span><span class="s3">1</span>
+                <span class="s1">j </span><span class="s2">-= </span><span class="s3">1</span>
+            <span class="s0">else</span><span class="s2">:</span>
+                <span class="s0">break</span>
 
-    return items, swaps, comparisons
+        <span class="s1">items</span><span class="s2">[</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">] = </span><span class="s1">key</span>
 
-def selectionSort(items : list):
-    swaps = 0
-    comparisons = 0
-
-    return items, swaps, comparisons
+    <span class="s0">return </span><span class="s1">items</span><span class="s2">, </span><span class="s1">swaps</span><span class="s2">, </span><span class="s1">comparisons</span>
 
 
-y = [9,8,7,6,5,4,3,2,1]
-print(bubbleSort(y.copy()))
-print(insertionSort(y.copy()))
-print(selectionSort(y.copy()))
-print()
-x = [x for x in range(50)]
-random.shuffle(x)
-print(bubbleSort(x.copy()))
-print(insertionSort(x.copy()))
-print(selectionSort(x.copy()))
+<span class="s0">def </span><span class="s1">selectionSort</span><span class="s2">(</span><span class="s1">items</span><span class="s2">: </span><span class="s1">list</span><span class="s2">):</span>
+    <span class="s1">swaps </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">comparisons </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">n </span><span class="s2">= </span><span class="s1">len</span><span class="s2">(</span><span class="s1">items</span><span class="s2">)</span>
+
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">n </span><span class="s2">- </span><span class="s3">1</span><span class="s2">):</span>
+        <span class="s1">min_index </span><span class="s2">= </span><span class="s1">i</span>
+        <span class="s0">for </span><span class="s1">j </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">i </span><span class="s2">+ </span><span class="s3">1</span><span class="s2">, </span><span class="s1">n</span><span class="s2">):</span>
+            <span class="s1">comparisons </span><span class="s2">+= </span><span class="s3">1</span>
+            <span class="s0">if </span><span class="s1">items</span><span class="s2">[</span><span class="s1">j</span><span class="s2">] &lt; </span><span class="s1">items</span><span class="s2">[</span><span class="s1">min_index</span><span class="s2">]:</span>
+                <span class="s1">min_index </span><span class="s2">= </span><span class="s1">j</span>
+
+        <span class="s0">if </span><span class="s1">min_index </span><span class="s2">!= </span><span class="s1">i</span><span class="s2">:</span>
+            <span class="s1">items</span><span class="s2">[</span><span class="s1">i</span><span class="s2">], </span><span class="s1">items</span><span class="s2">[</span><span class="s1">min_index</span><span class="s2">] = </span><span class="s1">items</span><span class="s2">[</span><span class="s1">min_index</span><span class="s2">], </span><span class="s1">items</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]</span>
+            <span class="s1">swaps </span><span class="s2">+= </span><span class="s3">1</span>
+
+    <span class="s0">return </span><span class="s1">items</span><span class="s2">, </span><span class="s1">swaps</span><span class="s2">, </span><span class="s1">comparisons</span>
+
+
+<span class="s1">y </span><span class="s2">= [</span><span class="s3">9</span><span class="s2">,</span><span class="s3">8</span><span class="s2">,</span><span class="s3">7</span><span class="s2">,</span><span class="s3">6</span><span class="s2">,</span><span class="s3">5</span><span class="s2">,</span><span class="s3">4</span><span class="s2">,</span><span class="s3">3</span><span class="s2">,</span><span class="s3">2</span><span class="s2">,</span><span class="s3">1</span><span class="s2">]</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">bubbleSort</span><span class="s2">(</span><span class="s1">y</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">insertionSort</span><span class="s2">(</span><span class="s1">y</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">selectionSort</span><span class="s2">(</span><span class="s1">y</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+<span class="s1">print</span><span class="s2">()</span>
+
+<span class="s1">x </span><span class="s2">= [</span><span class="s1">x </span><span class="s0">for </span><span class="s1">x </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">50</span><span class="s2">)]</span>
+<span class="s1">random</span><span class="s2">.</span><span class="s1">shuffle</span><span class="s2">(</span><span class="s1">x</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">bubbleSort</span><span class="s2">(</span><span class="s1">x</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">insertionSort</span><span class="s2">(</span><span class="s1">x</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">selectionSort</span><span class="s2">(</span><span class="s1">x</span><span class="s2">.</span><span class="s1">copy</span><span class="s2">()))</span>
+</pre>
+</body>
+</html>
