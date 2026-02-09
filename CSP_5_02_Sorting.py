@@ -1,6 +1,6 @@
 import random
 
-def bubbleSort(items: list):
+def bubbleSort(items):
     swaps = 0
     comparisons = 0
     n = len(items)
@@ -15,7 +15,7 @@ def bubbleSort(items: list):
     return items, swaps, comparisons
 
 
-def insertionSort(items: list):
+def insertionSort(items):
     swaps = 0
     comparisons = 0
     n = len(items)
@@ -24,21 +24,21 @@ def insertionSort(items: list):
         key = items[i]
         j = i - 1
 
-        while j >= 0:
+        while j >= 0 and items[j] > key:
             comparisons += 1
-            if items[j] > key:
-                items[j + 1] = items[j]
-                swaps += 1
-                j -= 1
-            else:
-                break
+            items[j + 1] = items[j]
+            swaps += 1
+            j -= 1
+
+        if j >= 0:
+            comparisons += 1
 
         items[j + 1] = key
 
     return items, swaps, comparisons
 
 
-def selectionSort(items: list):
+def selectionSort(items):
     swaps = 0
     comparisons = 0
     n = len(items)
@@ -57,14 +57,15 @@ def selectionSort(items: list):
     return items, swaps, comparisons
 
 
-y = [9,8,7,6,5,4,3,2,1]
+y = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 print(bubbleSort(y.copy()))
 print(insertionSort(y.copy()))
 print(selectionSort(y.copy()))
 print()
 
-x = [x for x in range(50)]
+x = list(range(50))
 random.shuffle(x)
 print(bubbleSort(x.copy()))
 print(insertionSort(x.copy()))
 print(selectionSort(x.copy()))
+
