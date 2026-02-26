@@ -24,14 +24,14 @@ def insertionSort(items):
         key = items[i]
         j = i - 1
 
-        while j >= 0 and items[j] > key:
+        while j >= 0:
             comparisons += 1
-            items[j + 1] = items[j]
-            swaps += 1
-            j -= 1
-
-        if j >= 0:
-            comparisons += 1
+            if items[j] > key:
+                items[j + 1] = items[j]
+                swaps += 1
+                j -= 1
+            else:
+                break
 
         items[j + 1] = key
 
@@ -57,6 +57,7 @@ def selectionSort(items):
     return items, swaps, comparisons
 
 
+# Test code
 y = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 print(bubbleSort(y.copy()))
 print(insertionSort(y.copy()))
@@ -68,4 +69,3 @@ random.shuffle(x)
 print(bubbleSort(x.copy()))
 print(insertionSort(x.copy()))
 print(selectionSort(x.copy()))
-
