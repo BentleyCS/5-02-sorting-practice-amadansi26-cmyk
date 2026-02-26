@@ -49,8 +49,9 @@ def selectionSort(items):
             if items[j] < items[min_index]:
                 min_index = j
 
-        items[i], items[min_index] = items[min_index], items[i]
-        swaps += 1
+        if min_index != i:
+            items[i], items[min_index] = items[min_index], items[i]
+            swaps += 1
 
     return items, swaps, comparisons
 
