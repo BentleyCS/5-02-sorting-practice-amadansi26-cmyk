@@ -1,17 +1,21 @@
 import random
 
-def bubbleSort(items):
+def bubbleSort(items: list)
     swaps = 0
     comparisons = 0
     n = len(items)
 
-    for i in range(n - 1):
-        for j in range(n - 1 - i):
-            comparisons += 1
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
-                swaps += 1
-
+    items = items.copy()
+    sorted = False
+    while not(sorted):
+        sorted = True
+        for i in range(len(items))-1):
+            comparisons+=1
+            if items[i] > items[i+1]:
+                sorted = False
+                items[i], items[i+1] = items[i+1], items[i]
+                swaps+=1
+    
     return items, swaps, comparisons
 
 
