@@ -5,7 +5,7 @@ def bubbleSort(items):
     comparisons = 0
     n = len(items)
 
-    for i in range(n):
+    for i in range(n - 1):
         for j in range(n - 1 - i):
             comparisons += 1
             if items[j] > items[j + 1]:
