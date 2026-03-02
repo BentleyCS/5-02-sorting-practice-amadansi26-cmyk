@@ -3,13 +3,15 @@ def bubbleSort(items):
     swaps = 0
     comparisons = 0
     n = len(items)
-
-    for i in range(n - 1):
-        for j in range(n - 1 - i):
+    sorted = False
+    while not(sorted):
+        sorted =True
+        for j in range(n - 1):
             comparisons += 1
             if items[j] > items[j + 1]:
                 items[j], items[j + 1] = items[j + 1], items[j]
                 swaps += 1
+                sorted = False
 
     return items, swaps, comparisons
 
@@ -49,9 +51,9 @@ def selectionSort(items):
             if items[j] < items[min_index]:
                 min_index = j
 
-        if min_index != i:
-            items[i], items[min_index] = items[min_index], items[i]
-            swaps += 1
+
+        items[i], items[min_index] = items[min_index], items[i]
+        swaps += 1
 
     return items, swaps, comparisons
 
